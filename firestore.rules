@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /dinnerWheelRooms/{roomId} {
+      allow read: if true;
+      allow create, update: if request.resource.data.size() <= 25
+        && (!('foods' in request.resource.data) || (request.resource.data.foods is list && request.resource.data.foods.size() <= 150))
+        && (!('tags' in request.resource.data) || (request.resource.data.tags is list && request.resource.data.tags.size() <= 80));
+      allow delete: if false;
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

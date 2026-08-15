@@ -1,0 +1,173 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>今天吃什麼？</title><style>
+:root{--main:#0ABAB5;--soft:#DDF8F7;--ink:#263238;--muted:#6b7c80;--line:#d8eeee;--danger:#e45b52;--bg:#f7fbfa;--card:#fff}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,var(--soft),#fff 38%,var(--bg));font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}.wrap{max-width:1180px;margin:auto;padding:18px}.top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.title h1{margin:0 0 6px;font-size:30px}.title p{margin:0;color:var(--muted);line-height:1.5}.room{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.pill,.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;font-weight:700}.adminOnly{display:none}.admin .adminOnly{display:inline-flex}.card{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 35px rgba(0,80,80,.08);padding:18px}.grid{display:grid;grid-template-columns:minmax(320px,1fr) 420px;gap:16px;margin-top:18px}.result{margin-bottom:14px;text-align:center}.result b{font-size:28px;color:var(--main)}.wheelBox{display:grid;place-items:center;padding:14px}.wheelWrap{position:relative;width:min(82vw,430px);aspect-ratio:1}.pointer{position:absolute;top:-8px;left:50%;transform:translateX(-50%);z-index:3;width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-top:30px solid var(--main);filter:drop-shadow(0 4px 3px #0002)}.wheelLayer{position:absolute;inset:0;border-radius:50%;transition:transform .55s cubic-bezier(.2,.8,.2,1)}.wheel{position:absolute;inset:0;border-radius:50%;border:10px solid #fff;box-shadow:0 14px 30px #008b8b22}.labels{position:absolute;inset:0;border-radius:50%;pointer-events:none}.label{position:absolute;left:50%;top:50%;width:42%;transform-origin:0 50%;font-size:13px;font-weight:800;color:#fff;text-shadow:0 1px 3px #0008;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.center{position:absolute;inset:34%;border-radius:50%;border:8px solid #fff;background:var(--main);color:white;font-weight:900;display:grid;place-items:center;text-align:center;padding:8px;z-index:2;box-shadow:0 10px 25px #008b8b33;cursor:pointer}.sectionTitle{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 0 10px}.sectionTitle h2{margin:0;font-size:18px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.chip{display:inline-flex;align-items:center;gap:6px;font-size:14px}.search{width:100%;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:14px;font-size:16px}.item{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:10px;background:#fff}.item.off{opacity:.55}.itemName{font-weight:900}.tag{display:inline-flex;gap:5px;flex-wrap:wrap;margin-top:5px;color:var(--muted);font-size:13px}.mini{display:flex;gap:6px}.mini button{width:38px;height:38px;border-radius:10px;padding:0;display:grid;place-items:center;font-size:17px}button{border:0;border-radius:14px;background:var(--main);color:white;font-weight:900;padding:12px 16px;min-height:44px;cursor:pointer}button.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}button.danger{background:var(--danger);color:#fff}.addOptionBtn{width:100%;margin-top:8px}.status{margin-top:14px;padding:12px;border-radius:16px;background:#eefafa;color:#467275;font-weight:700}.modal{position:fixed;inset:0;background:#0006;display:none;align-items:center;justify-content:center;padding:18px;z-index:20}.modal.show{display:flex}.modalBox{background:#fff;border-radius:24px;max-width:520px;width:100%;padding:20px;max-height:88vh;overflow:auto;position:relative}.xBtn{position:absolute;right:14px;top:12px;width:36px;height:36px;border-radius:50%;padding:0;min-height:36px;background:#fff;color:var(--ink);border:1px solid var(--line);font-size:20px}.editFooter{display:flex;gap:10px;justify-content:space-between;margin-top:16px}.editFooter button{flex:1}.tagManageItem{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px}.tagManageItem .itemName{font-size:15px}.tagManageItem .tag{font-size:12px}.tagManageItem .mini{flex:0 0 auto}.tagManageItem .danger{min-height:34px;padding:7px 13px;border-radius:10px}.field{display:block;margin:12px 0;font-weight:800}.field input{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:16px}.tagBox{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.tagChoice{border:1px solid var(--line);border-radius:999px;padding:8px 11px;background:#fff;display:inline-flex;gap:6px;align-items:center;font-size:14px;white-space:nowrap;word-break:keep-all;line-height:1;flex:0 0 auto;max-width:100%}.tagChoice input{margin:0;flex:0 0 auto}.tagChoice span{display:inline-block;white-space:nowrap;word-break:keep-all;overflow:visible;text-overflow:clip}.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:16px}.row.equal>*{flex:1;min-width:135px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#173b3b;color:#fff;padding:12px 16px;border-radius:999px;opacity:0;pointer-events:none;transition:.2s;z-index:50}.toast.show{opacity:1}.missingRoom{display:none}.missing .appMain{display:none}.missing .missingRoom{display:block}@media(max-width:860px){.wrap{padding:12px}.top{display:block}.title h1{font-size:25px}.room{justify-content:flex-start;margin-top:10px}.grid{grid-template-columns:1fr}.card{padding:14px}.item{grid-template-columns:1fr}.mini{justify-content:flex-end}.resultActions>*{flex-basis:100%}}
+
+
+/* 08:03 修正：標籤用固定舒適寬度，不再為了塞更多顆而壓縮文字 */
+.tagBox{display:grid!important;grid-template-columns:repeat(auto-fit,86px)!important;justify-content:start!important;gap:8px!important;}
+.tagChoice{box-sizing:border-box!important;width:86px!important;min-width:86px!important;max-width:86px!important;height:36px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:5px!important;padding:8px 9px!important;white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important;line-break:strict!important;flex:none!important;}
+.tagChoice input{flex:0 0 auto!important;margin:0!important;}
+.tagChoice span{display:inline-block!important;white-space:nowrap!important;word-break:keep-all!important;overflow-wrap:normal!important;line-break:strict!important;width:auto!important;min-width:0!important;max-width:none!important;overflow:visible!important;}
+
+/* 08:10 最終定位修正：只針對「編輯選項 > 更改標籤」的勾選標籤 */
+#editModal #editTagChoices.editTagBox{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+  gap:8px!important;
+}
+#editModal #editTagChoices.editTagBox .tagChoice{
+  display:inline-flex!important;
+  flex:0 0 auto!important;
+  flex-shrink:0!important;
+  width:92px!important;
+  min-width:92px!important;
+  max-width:92px!important;
+  height:38px!important;
+  box-sizing:border-box!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:6px!important;
+  padding:8px 10px!important;
+  white-space:nowrap!important;
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+  line-break:strict!important;
+}
+#editModal #editTagChoices.editTagBox .tagChoice input{
+  flex:0 0 auto!important;
+  width:14px!important;
+  height:14px!important;
+  margin:0!important;
+}
+#editModal #editTagChoices.editTagBox .tagChoice span{
+  display:inline-block!important;
+  flex:0 0 auto!important;
+  width:auto!important;
+  min-width:max-content!important;
+  max-width:none!important;
+  white-space:nowrap!important;
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+  line-break:strict!important;
+  overflow:visible!important;
+}
+
+/* 08:16：重寫「編輯選項 > 更改標籤」實際產生的標籤元件 */
+#editModal #editTagChoices{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:8px!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+}
+#editModal #editTagChoices .edit-tag-pill{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:6px!important;
+  box-sizing:border-box!important;
+  width:88px!important;
+  min-width:88px!important;
+  max-width:88px!important;
+  height:36px!important;
+  padding:8px 10px!important;
+  border:1px solid var(--line)!important;
+  border-radius:999px!important;
+  background:#fff!important;
+  font-size:14px!important;
+  line-height:1!important;
+  font-weight:800!important;
+  white-space:nowrap!important;
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+  flex:0 0 88px!important;
+}
+#editModal #editTagChoices .edit-tag-pill input{
+  width:14px!important;
+  height:14px!important;
+  margin:0!important;
+  flex:0 0 14px!important;
+}
+#editModal #editTagChoices .edit-tag-pill span{
+  display:inline-block!important;
+  white-space:nowrap!important;
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+  flex:0 0 auto!important;
+}
+
+/* 08:21：套用同樣成功方式到「新增選項 > 選擇標籤」 */
+#addModal #addTagChoices{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:8px!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+}
+#addModal #addTagChoices .add-tag-pill{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:6px!important;
+  box-sizing:border-box!important;
+  width:88px!important;
+  min-width:88px!important;
+  max-width:88px!important;
+  height:36px!important;
+  padding:8px 10px!important;
+  border:1px solid var(--line)!important;
+  border-radius:999px!important;
+  background:#fff!important;
+  font-size:14px!important;
+  line-height:1!important;
+  font-weight:800!important;
+  white-space:nowrap!important;
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+  flex:0 0 88px!important;
+}
+#addModal #addTagChoices .add-tag-pill input{
+  width:14px!important;
+  height:14px!important;
+  margin:0!important;
+  flex:0 0 14px!important;
+}
+#addModal #addTagChoices .add-tag-pill span{
+  display:inline-block!important;
+  white-space:nowrap!important;
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+  flex:0 0 auto!important;
+}
+
+/* 00:32 拉霸機完整測試版：保留完整測試功能，不連 Firebase */
+.slotBox{display:grid;place-items:center;padding:18px}.slotMachine{width:min(92vw,460px);position:relative;text-align:center}.slotHint{font-weight:900;color:var(--main);margin-bottom:10px}.slotWindow{height:210px;border:3px solid var(--main);border-radius:24px;background:linear-gradient(180deg,#fff,#f4fffe);overflow:hidden;box-shadow:inset 0 20px 35px rgba(10,186,181,.12),0 14px 35px rgba(0,80,80,.08);position:relative}.slotWindow:before,.slotWindow:after{content:"";position:absolute;left:0;right:0;height:62px;z-index:2;pointer-events:none}.slotWindow:before{top:0;background:linear-gradient(#fff,rgba(255,255,255,0))}.slotWindow:after{bottom:0;background:linear-gradient(rgba(255,255,255,0),#fff)}.slotReel{position:absolute;left:0;right:0;top:0;transition:transform 1.35s cubic-bezier(.13,.82,.13,1)}.slotItem{height:70px;display:grid;place-items:center;font-size:30px;font-weight:1000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 20px}.slotItem.dim{color:#8aa}.slotItem.win{color:var(--main);font-size:34px}.slotPointer{display:none}.slotBtn{margin-top:18px;border-radius:999px;font-size:20px;padding:14px 28px;min-width:180px}.slotBtn[disabled]{opacity:.65;cursor:not-allowed}@media(max-width:860px){.slotWindow{height:180px}.slotItem{height:60px;font-size:25px}.slotItem.win{font-size:29px}.slotPointer{display:none}}
+.wheelBox{display:none!important}
+
+.topGrid{display:grid;grid-template-columns:minmax(320px,1fr) 420px;gap:16px;margin-top:18px}.foodPanel{margin-top:16px}.foodPanel .addOptionBtn{max-width:220px;margin:0 0 14px 0}.foodPanel #optionList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.foodPanel .item{margin-bottom:0}@media(max-width:860px){.topGrid{grid-template-columns:1fr}.foodPanel #optionList{grid-template-columns:1fr}.foodPanel .addOptionBtn{max-width:none;width:100%}}
+
+.searchAddRow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;margin-bottom:14px}.searchAddRow .search{margin-bottom:0}.searchAddRow .addOptionBtn{width:auto;min-width:132px;margin:0;white-space:nowrap}@media(max-width:560px){.searchAddRow{grid-template-columns:1fr}.searchAddRow .addOptionBtn{width:100%}}
+
+.inlineAddTag{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;margin-top:6px}.inlineAddTag input{margin-top:0!important}.inlineAddTag button{white-space:nowrap;min-height:44px}@media(max-width:560px){.inlineAddTag{grid-template-columns:1fr}.inlineAddTag button{width:100%}}
+
+.add-new-tag-chip{border:1px dashed var(--main)!important;color:var(--main)!important;background:#f3fffe!important;font-weight:900;cursor:pointer}.quickTagInput{display:none;grid-template-columns:1fr auto;gap:8px;margin-top:10px}.quickTagInput.show{display:grid}.quickTagInput input{border:1px solid var(--line);border-radius:12px;padding:12px;font-size:16px}.quickTagInput button{white-space:nowrap;min-width:72px}@media(max-width:560px){.quickTagInput{grid-template-columns:1fr auto}}
+
+.resultBox{overflow:visible}.confetti{position:fixed;inset:0;pointer-events:none;overflow:visible;z-index:60}.confetti i{position:fixed;left:50%;top:58%;width:8px;height:14px;border-radius:2px;opacity:.95;animation:confettiBurst 1.45s cubic-bezier(.12,.75,.25,1) forwards}@keyframes confettiBurst{0%{transform:translate(-50%,0) rotate(0deg) scale(.8);opacity:1}55%{opacity:1}100%{transform:translate(calc(-50% + var(--dx)),var(--dy)) rotate(var(--rot)) scale(1);opacity:0}}
+</style></head><body><div class="wrap"><header class="top"><div class="title"><h1>今天吃什麼？｜XnA</h1><p>不知道今天要吃什麼嗎? 交給拉霸機來決定! 想吃都加進來吧~ 😋</p></div><div class="room" style="display:none"></div></header><div class="status" id="syncStatus">正式上線版：拉霸機版。共用清單與標籤會同步，個人勾選、權重、停用、歷史與結果只存在自己的裝置。</div><section class="missingRoom card" style="margin-top:16px"><h2>此房號不存在</h2><p style="color:var(--muted)">測試版目前唯一存在房號是 xna。請確認連結是否正確，或請管理者建立房間。</p><button id="copyMissingRoom">複製目前房號</button></section><main class="appMain"><div class="topGrid"><section><div class="card result"><div>今日結果</div><b id="resultText">還沒決定</b><div id="resultHistory" style="color:var(--muted);margin-top:6px">最近吃過：尚無紀錄</div></div><div class="card slotBox"><div class="slotMachine"><div class="slotWindow"><div class="slotReel" id="slotReel"></div></div><button class="slotBtn" id="spinBtn"><span id="centerText">開始決定</span></button></div></div></section><aside class="card"><div class="sectionTitle"><h2>今天想吃甚麼類型的餐點？</h2><button id="openTagsModal" class="secondary" type="button">編輯標籤</button></div><div class="filters" id="tagFilters"></div></aside></div><section class="card foodPanel"><div class="sectionTitle"><h2>飲食清單</h2></div><div class="searchAddRow"><input class="search" id="searchInput" placeholder="搜尋飲食清單"><button id="openAddModal" class="addOptionBtn">＋ 新增選項</button></div><div id="optionList"></div></section></main></div><div class="modal" id="addModal"><div class="modalBox"><h2 style="margin-top:0">新增選項</h2><label class="field">名稱<input id="foodName" placeholder="例如：滷味王"></label><div class="field">選擇標籤，可複選<div class="tagBox" id="addTagChoices"></div><div class="quickTagInput" id="quickTagInput"><input id="newTagName" placeholder="輸入新標籤"><button type="button" id="addTagInModal">加入</button></div></div><div class="row equal"><button class="secondary" id="closeAddModal">取消</button><button id="confirmAdd">加入轉盤</button></div></div></div><div class="modal" id="editModal"><div class="modalBox"><button class="xBtn" id="cancelEdit" type="button">×</button><h2 style="margin-top:0">編輯選項</h2><label class="field">更改名稱<input id="editName"></label><div class="field">更改標籤<div class="tagBox editTagBox" id="editTagChoices"></div></div><label class="field">新增標籤<input id="editNewTagName" placeholder="新增後可直接勾選"><button type="button" id="addTagInEdit" style="margin-top:8px">＋ 新增標籤</button></label><div class="editFooter"><button class="danger" id="deleteFromEdit">刪除</button><button id="saveEdit">儲存</button></div></div></div><div class="modal" id="tagsModal"><div class="modalBox"><button class="xBtn" id="closeTagsModal" type="button">×</button><h2 style="margin-top:0">編輯標籤</h2><p style="color:var(--muted)">可新增或刪除標籤。仍有選項正在使用的標籤，會先提醒你，不能直接刪除。</p><div id="tagManageList"></div><label class="field">新增標籤<input id="manageNewTag" placeholder="例如：宵夜、早午餐"></label><div class="row equal"><button id="addManagedTag" type="button">＋ 新增標籤</button></div></div></div><div class="modal" id="resultModal"><div class="modalBox resultBox" style="text-align:center"><button class="xBtn" id="closeResult" type="button">×</button><div class="confetti" id="confetti"></div><h2>今天就吃</h2><div id="modalPick" style="font-size:34px;font-weight:900;color:var(--main)">火鍋</div><div class="row equal resultActions"><a id="mapSearch" href="#" target="_blank" style="background:var(--main);color:#fff;text-decoration:none;border-radius:14px;padding:12px 16px;font-weight:900;display:inline-flex;align-items:center;justify-content:center">🔎 搜尋店家</a><button id="spinAgain" type="button">▶ 再來一次</button></div></div></div><div class="toast" id="toast"></div><script>
+/* 2026-08-16 formal slot-machine online build. Firebase integration files included in package. */
+const isAdmin=new URLSearchParams(location.search).get('admin')==='1';const room=(new URLSearchParams(location.search).get('room')||'xna').toLowerCase();document.body.classList.toggle('admin',isAdmin);if(room!=='xna')document.body.classList.add('missing');
+const colors=['#0ABAB5','#6bd7d3','#8de2df','#5ec8c4','#37c2bd','#8bd0cf','#4db6b1'];let angle=0,search='',selectedTags=[],last='還沒決定',editingId=null;let history=[];let tags=['主食','飲料','外送','小吃','甜點','家裡','宵夜'];let foods=[{id:'1',name:'滷味',tags:['主食','小吃'],on:true,w:3},{id:'2',name:'麥當勞',tags:['主食','飲料','外送'],on:true,w:2},{id:'3',name:'家裡煮',tags:['主食','家裡'],on:true,w:2},{id:'4',name:'火鍋',tags:['主食'],on:true,w:1},{id:'5',name:'鹽酥雞',tags:['小吃','外送','宵夜'],on:true,w:1},{id:'6',name:'韓式料理',tags:['主食','外送'],on:true,w:1},{id:'7',name:'雞蛋糕',tags:['甜點'],on:true,w:1},{id:'8',name:'手搖飲',tags:['飲料'],on:true,w:1},{id:'9',name:'宵夜店',tags:['主食','小吃','宵夜'],on:true,w:1},{id:'10',name:'泰式料理',tags:['主食','外送'],on:true,w:1}];selectedTags=[...usedTags()];const $=id=>document.getElementById(id);function toast(t){$('toast').textContent=t;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),1500)}function usedTags(){return tags.filter(t=>foods.some(f=>f.tags.includes(t)))}function weightIcon(w){return w>=3?'😍':w>=2?'🤤':'🙂'}function weightText(w){return w>=3?'超想吃':w>=2?'想吃':'普通'}function filteredFoods(){return foods.filter(f=>f.tags.some(t=>selectedTags.includes(t))&&(!search||f.name.includes(search)||f.tags.some(t=>t.includes(search))))}function wheelFoods(){return filteredFoods().filter(f=>f.on)}function draw(){const u=usedTags();selectedTags=selectedTags.filter(t=>u.includes(t));if(!selectedTags.length)selectedTags=[...u];$('tagFilters').innerHTML='<label class="chip"><input type="checkbox" id="allTags" '+(u.every(t=>selectedTags.includes(t))?'checked':'')+'>全選</label>'+u.map(t=>{let c=foods.filter(f=>f.tags.includes(t)).length;return `<label class="chip"><input type="checkbox" value="${t}" ${selectedTags.includes(t)?'checked':''}><span>${t}(${c})</span></label>`}).join('');$('allTags').onchange=e=>{selectedTags=e.target.checked?[...u]:[];draw()};document.querySelectorAll('#tagFilters input[value]').forEach(i=>i.onchange=()=>{selectedTags=[...document.querySelectorAll('#tagFilters input[value]:checked')].map(x=>x.value);draw()});renderTagChoices('addTagChoices',[]);const list=filteredFoods();$('optionList').innerHTML=list.map(f=>`<div class="item ${f.on?'':'off'}"><div><div class="itemName">${f.name}</div><div class="tag">${f.tags.map(t=>'#'+t).join('　')} · ${weightText(f.w)} · ${f.on?'使用中':'已停用'}</div></div><div class="mini"><button class="secondary" onclick="cycle('${f.id}')" title="權重">${weightIcon(f.w)}</button><button class="secondary" onclick="toggle('${f.id}')" title="停用/啟用">${f.on?'⏸️':'▶️'}</button><button class="secondary" onclick="openEdit('${f.id}')" title="編輯">✏️</button></div></div>`).join('')||'<div style="color:var(--muted);text-align:center;padding:18px">沒有符合條件的選項</div>';drawWheel(wheelFoods())}let slotBusy=false;
+function buildWeightedList(list){let pool=[];list.forEach(f=>{for(let i=0;i<(f.w||1);i++)pool.push(f)});return pool.length?pool:list}
+function drawWheel(list){const reel=$('slotReel');if(!reel)return;const base=list.length?list:foods.slice(0,5);let preview=[];for(let i=0;i<9;i++){preview.push(base[i%Math.max(1,base.length)]||{name:'請先新增選項'})}reel.style.transition='none';reel.style.transform='translateY(0px)';reel.innerHTML=preview.map((f,i)=>`<div class="slotItem ${i===1?'win':'dim'}">${f.name||'請先新增選項'}</div>`).join('')}
+function spinSlotTo(pick,list){const reel=$('slotReel');const rowH=window.innerWidth<=860?60:70;let pool=buildWeightedList(list);let rows=[];const minRows=90;for(let i=0;i<minRows;i++){rows.push(pool[i%pool.length])}rows.push(pick);rows.push(...pool.slice(0,8));reel.style.transition='none';reel.style.transform='translateY(0px)';reel.innerHTML=rows.map((f,i)=>`<div class="slotItem ${i===minRows?'win':'dim'}">${f.name}</div>`).join('');void reel.offsetHeight;reel.style.transition='transform 1.55s cubic-bezier(.13,.82,.13,1)';reel.style.transform=`translateY(-${(minRows-1)*rowH}px)`}
+function renderTagChoices(id,chosen){let cls=id==='editTagChoices'?'edit-tag-pill':(id==='addTagChoices'?'add-tag-pill':'chip');$(id).innerHTML=tags.map(t=>`<label class="${cls}"><input type="checkbox" value="${t}" ${chosen.includes(t)?'checked':''}><span>${t}</span></label>`).join('')+(id==='addTagChoices'?'<button type="button" class="add-new-tag-chip" id="showQuickTag">＋新增</button>':'');if(id==='addTagChoices'&&$('showQuickTag')){$('showQuickTag').onclick=()=>{$('quickTagInput').classList.toggle('show');$('newTagName').focus()}}}function chosen(id){return [...document.querySelectorAll('#'+id+' input:checked')].map(i=>i.value)}function addTag(name,choiceId){name=name.trim();if(!name)return;if(!tags.includes(name))tags.push(name);renderTagChoices(choiceId,[...chosen(choiceId),name]);toast('已新增標籤')}window.cycle=id=>{foods=foods.map(f=>f.id===id?{...f,w:f.w%3+1}:f);draw()};window.toggle=id=>{foods=foods.map(f=>f.id===id?{...f,on:!f.on}:f);draw()};window.openEdit=id=>{editingId=id;let f=foods.find(x=>x.id===id);$('editName').value=f.name;renderTagChoices('editTagChoices',f.tags);$('editModal').classList.add('show')};$('openAddModal').onclick=()=>{$('foodName').value='';$('newTagName').value='';$('quickTagInput').classList.remove('show');renderTagChoices('addTagChoices',[]);$('addModal').classList.add('show')};$('closeAddModal').onclick=()=>$('addModal').classList.remove('show');$('addTagInModal').onclick=()=>{let v=$('newTagName').value.trim();if(!v)return;addTag(v,'addTagChoices');$('newTagName').value='';$('quickTagInput').classList.remove('show')};$('newTagName').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('addTagInModal').click()}});$('confirmAdd').onclick=()=>{let name=$('foodName').value.trim(),ts=chosen('addTagChoices');if(!name||!ts.length){toast('請輸入名稱並至少選一個標籤');return}foods.push({id:Date.now()+'',name,tags:ts,on:true,w:1});$('addModal').classList.remove('show');draw()};$('addTagInEdit').onclick=()=>addTag($('editNewTagName').value,'editTagChoices');$('cancelEdit').onclick=()=>$('editModal').classList.remove('show');$('saveEdit').onclick=()=>{let ts=chosen('editTagChoices'),name=$('editName').value.trim();if(!name||!ts.length){toast('請輸入名稱並至少選一個標籤');return}foods=foods.map(f=>f.id===editingId?{...f,name,tags:ts}:f);$('editModal').classList.remove('show');draw()};$('deleteFromEdit').onclick=()=>{if(confirm('確定刪除這個選項？')){foods=foods.filter(f=>f.id!==editingId);$('editModal').classList.remove('show');draw()}};$('searchInput').oninput=e=>{search=e.target.value.trim();draw()};$('spinBtn').onclick=()=>{let list=wheelFoods();if(list.length<2){toast('至少需要 2 個可用選項');return}if(slotBusy)return;slotBusy=true;$('spinBtn').disabled=true;$('centerText').textContent='決定中…';let total=list.reduce((s,f)=>s+(f.w||1),0),r=Math.random()*total,acc=0,pick=list[0];for(let i=0;i<list.length;i++){acc+=list[i].w||1;if(r<=acc){pick=list[i];break}}spinSlotTo(pick,list);setTimeout(()=>{last=pick.name;history.unshift({name:last,at:Date.now()});history=history.slice(0,20);$('resultText').textContent=last;$('centerText').textContent='再來一次';$('spinBtn').disabled=false;slotBusy=false;showResult(last)},1650)};function launchConfetti(){const box=$('confetti');if(!box)return;const cs=['#0ABAB5','#FFD166','#EF476F','#06D6A0','#118AB2','#FF9F1C'];box.innerHTML='';for(let i=0;i<58;i++){let el=document.createElement('i');let angle=(-150+Math.random()*120)*Math.PI/180;let power=160+Math.random()*260;let dx=Math.cos(angle)*power;let dy=Math.sin(angle)*power-(80+Math.random()*120);el.style.background=cs[i%cs.length];el.style.animationDelay=(Math.random()*0.16)+'s';el.style.setProperty('--dx',dx+'px');el.style.setProperty('--dy',dy+'px');el.style.setProperty('--rot',(360+Math.random()*720)+'deg');box.appendChild(el)}setTimeout(()=>box.innerHTML='',1700)}function showResult(name){$('modalPick').textContent=name;let hideMap=['家裡煮','不吃','不吃晚餐'].includes(name);$('mapSearch').style.display=hideMap?'none':'inline-flex';$('mapSearch').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(name);$('resultModal').classList.add('show');launchConfetti();$('resultHistory').textContent='最近吃過：'+(history.length?history.slice(0,3).map(h=>h.name).join('、'):'尚無紀錄')}$('closeResult').onclick=()=>$('resultModal').classList.remove('show');$('spinAgain').onclick=()=>{$('resultModal').classList.remove('show');$('spinBtn').click()};
+function renderTagManager(){
+  $('tagManageList').innerHTML=tags.map(t=>`<div class="item tagManageItem"><div><div class="itemName">#${t}</div><div class="tag">${foods.filter(f=>f.tags.includes(t)).length} 個選項使用中</div></div><div class="mini"><button class="danger" onclick="deleteTag('${t}')">刪除</button></div></div>`).join('')||'<div style="color:var(--muted);padding:12px">尚無標籤</div>';
+}
+window.deleteTag=(t)=>{ const used=foods.filter(f=>f.tags.includes(t)).length; if(used>0){ alert('這個標籤裡面還有 '+used+' 個選項在使用喔！先把這些選項改到其他標籤，或刪掉相關選項後，才能刪除這個標籤。'); return; } if(confirm('確定刪除標籤「'+t+'」？')){ tags=tags.filter(x=>x!==t); renderTagManager(); draw(); toast('已刪除標籤'); } };
+$('openTagsModal').onclick=()=>{ renderTagManager(); $('tagsModal').classList.add('show'); };
+$('closeTagsModal').onclick=()=>$('tagsModal').classList.remove('show');
+$('addManagedTag').onclick=()=>{ let name=$('manageNewTag').value.trim(); if(!name)return; if(!tags.includes(name))tags.push(name); $('manageNewTag').value=''; renderTagManager(); draw(); toast('已新增標籤'); };
+$('copyMissingRoom').onclick=()=>toast('已複製目前房號');draw();
+</script></body></html>
