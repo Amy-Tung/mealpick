@@ -6,3 +6,21 @@ window.DINNER_WHEEL_FIREBASE_CONFIG = {
   messagingSenderId: "624209509587",
   appId: "1:624209509587:web:efafd7b68cc504c9de6826"
 };
+
+// MealPick UI copy override
+window.MEALPICK_START_LABEL = "😋 開抽美食";
+(function(){
+  function applyMealPickStartLabel(){
+    var centerText = document.getElementById('centerText');
+    if (centerText && centerText.textContent.trim() === '開始決定') {
+      centerText.textContent = window.MEALPICK_START_LABEL;
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyMealPickStartLabel);
+  } else {
+    applyMealPickStartLabel();
+  }
+  setTimeout(applyMealPickStartLabel, 0);
+  setTimeout(applyMealPickStartLabel, 300);
+})();
